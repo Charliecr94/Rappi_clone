@@ -13,7 +13,10 @@ import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurant
 import { SafeArea } from "./src/components/utility/safe-area.component";
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 import { LocationContextProvider } from "./src/services/location/location.context";
+import { FavoritesContextProvider } from "./src/services/favorites/favorites.context";
+
 import { Navigation } from "./src/infrastructure/navigation";
+
 
 
 export default function App() {
@@ -32,11 +35,13 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+      <FavoritesContextProvider>
        <LocationContextProvider>
          <RestaurantsContextProvider>
            <Navigation/>
          </RestaurantsContextProvider>
         </LocationContextProvider>
+      </FavoritesContextProvider>
       </ThemeProvider>
     </>       
   );
